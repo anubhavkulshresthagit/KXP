@@ -1,0 +1,1255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>KXP</title>
+
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+	<link rel="icon" type="image/jpeg" href="{% static 'home/kxp-zig.png' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+
+
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Noto+Serif&display=swap');
+
+
+</style>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167876443-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167876443-1');
+</script>
+
+
+</head>
+
+
+
+<body onload="myfunction()">
+<div id="loading" >
+
+</div>
+
+
+<header class="header_area">
+    <div class="top_menu row m0">
+         <div class="container-fluid">
+             <div class="float-left">
+                 <p style="font-family: 'Noto Serif', serif;">Email: kxchangep@gmail.com</p>
+             </div>
+             <div class="float-right">
+                 <ul class="right_side">
+
+                     {% if user.is_authenticated %}
+                     <li>
+                     <a style="font-family: 'Noto Serif', serif;" href="#">
+                         LOGOUT
+                     </a>
+                     </li>
+
+                     {% else %}
+                      <li>
+                     <a  style="font-family: 'Noto Serif', serif;" href="#">
+                         LOGIN/REGISTER
+                     </a>
+                     </li>
+                     {% endif %}
+                     <li>
+                     <a style="font-family: 'Noto Serif', serif;" href="#about">
+                         CONTACT
+                     </a>
+                     </li>
+                     <li>
+                     <a style="font-family: 'Noto Serif', serif;" href="#about">
+                         ABOUT
+                     </a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+    </div>
+     <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light lower_nav">
+  <div class="container-fluid">
+
+     <a class="navbar-brand logo_h" href="#"><img class="kxplogo" src="{% static 'home/kxplogo-removebg.png' %}"></a>
+
+    <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+
+       <div class="animated-icon1">
+           <span class="span"></span>
+           <span class="span"></span>
+           <span class="span"></span></div>
+           </button>
+
+    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+        <div class="row w-100">
+            <div class="col-lg pr-0">
+            <ul class="nav navbar-nav center_nal pull-right">
+                 {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Home</b></a>
+                </li>
+                {% else %}
+                 <li class="nav-item active">
+                    <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Home</b></a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="font-family: 'Noto Serif', serif;" aria-expanded="false"><b>Shop</b></a>
+                    <ul class="dropdown-menu">
+
+                        <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>All-in-one</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Books</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Lab Acc.</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Electronics</b></a>
+                        </li>
+                    </ul>
+                </li>
+                {% else %}
+
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown toggle" data-toggle="dropdown" role="button" style="font-family: 'Noto Serif', serif;" aria-haspopup="true" aria-expanded="false"><b>Shop</b></a>
+                    <ul class="dropdown-menu">
+
+                        <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>All-in-one</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Books</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Lab Acc.</b></a>
+                        </li>
+                         <li class="nav-item" style="margin-right:0px;">
+                            <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Electronics</b></a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li class="nav-item submenu dropdown">
+                   {% if user.is_authenticated %}
+                    <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#"><b>Sell</b></a>
+                    {% else %}
+                    <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#about"><b>About Us</b></a>
+                    {% endif %}
+               </li>
+                <li class="nav-item submenu dropdown">
+                    <a class="nav-link" style="font-family: 'Noto Serif', serif;" href="#about"><b>Contact Us</b></a>
+                </li>
+
+            </ul>
+            </div>
+            <div class="col-lg-5">
+                <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                    {% if user.is_authenticated %}
+
+
+                    <li class="nav-item">
+                        <form method="get" name="search" action="/search/">
+                        <a href="#" class="icons">
+                            <i class="fa fa-search mt-4" onclick="myFunction()" data-trigger='focus' aria-hidden="true"></i></a>
+                        <div id="myDropdown" class="dropdown-content">
+                           <div class="search-box">
+                            <input  id="search" class="search-txt" type="text" name="search" placeholder="Type to search"/>
+                            <button class="search-btn"type="submit">
+                                 <i class='fas fa-search'></i>
+                            </button>
+
+
+                           </div>
+
+                        </div>
+                        </form>
+                    </li>
+                    {% endif %}
+
+                     <li class="nav-item">
+                        <a href="#" class="icons" ><i class="fa fa-user mt-4" onclick="myFunction1()" data-trigger='focus' aria-hidden="true"></i></a>
+                        <div id="myDropdown1" class="dropdown-content">
+                           <div class="user-box">
+                            <div class="user-box1">
+
+                                 <b><p style="margin-left:5px;" class="user-txt" href="#" ></p></b><br>
+                                <b><a style="margin-left:5px;" style="font-family: 'Noto Serif', serif;" class="user-txt" href="#" >Login</a></b>
+
+                          </div>
+                            <a class="user-btn" href="#">
+                                 <i class='fas fa-user' style="font-size: 30px;"></i>
+                            </a>
+
+
+                           </div>
+
+                   </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="icons" >
+
+                             <i   class="fa fa-heart mt-4" aria-hidden="true" id="popcart" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Your cart is empty!!">
+
+
+                            </i>
+
+                       </a>
+                    </li>
+
+
+
+
+                    <li class="nav-item">
+                        <a href="https://maps.app.goo.gl/g93rwL2VHTi152s9A" class="icons" target="_blank">
+                            <i class="fa fa-globe mt-4" aria-hidden="true" title="Our Location">
+                            </i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+      </nav>
+     </div>
+<!--    <div class="col-md-12 mt-2 " >-->
+<!--          {% if messages %}-->
+<!--            {% for message in messages %}-->
+<!--              <div style="width:100%; text-align:center; " class="alert alert-{{ message.tags }} alert-dismissible fade show">-->
+<!--                {{ message }}-->
+<!--                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--    <span aria-hidden="true">&times;</span>-->
+<!--  </button>-->
+<!--              </div>-->
+<!--            {% endfor %}-->
+<!--          {% endif %}-->
+<!--        </div>-->
+</header>
+
+<div id="carouselExampleIndicators"  class="carousel slide navbar_opacity_margin" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 carousel_height" src="{% static 'home/Untitled-5.webp' %}" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 carousel_height" src="{% static 'home/Untitled-6.webp'%}" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 carousel_height" src="{% static 'home/Untitled-7.webp' %}" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+
+      </div>
+    </div>
+  </div>
+  <a href="#scroll" class="scrolldown">
+            <div class="mouse">
+                <span></span>
+            </div>
+            <div class="arrow">
+                <span></span>
+            </div>
+                </a>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+<div class=" container catsection ">
+
+<div class=" container text  " >
+	<br>
+	<br><br><br>
+<h6 class="text-center font-weight-bold text_categories  " id="scroll">Categories</h6>
+<br><br>
+<p class="text-center font-weight-bold " style="font-family: 'Noto Serif', serif;"> Currently we are dealing with some of the essential products. You can check it out the following categories by choosing any one of them. We will surely come up with the more options in future.</p>
+</div><br>
+<br><br>
+<div class="container">
+<div class="card-deck">
+  <div class="card slide-in from-left">
+    <img src="{% static 'home/book-shelf.jpg' %}" class="card-img-top xxx" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">Books</h5>
+      <p class="card-text">For some of us, books are as important as almost anything else on earth. What a miracle it is that out of these small, flat, rigid squares of paper unfolds world after world. They say, books let you travel without moving your feet</p>
+    </div>
+
+       <div class="card-footer text-center">
+        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family: 'Libre Baskerville', serif;">Buy Now</a>
+      </div>
+
+
+  </div>
+  <div class="card">
+    <img src="{% static 'home/lab1.jpg' %}" class="card-img-top xxx" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">Lab Accessories</h5>
+      <p class="card-text">Whether it be your parents who are concerned for your security or it be your teachers who scold you to have proper lab accessories, this section contains all those stuffs which can make you justify the expectations of your parents and teachers and that too being economic.</p>
+    </div>
+
+    <div class="card-footer text-center">
+      <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family: 'Libre Baskerville', serif;">Buy Now</a>
+    </div>
+
+
+
+  </div>
+  <div class="card slide-in from-right">
+    <img src="{% static 'home/mac.jpg' %}" class="card-img-top xxx" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">Electronic Accessories</h5>
+      <p class="card-text">Have you ever dreamt of future without the presence of electronic gadgets/accessories ? Since, they are the driven forces today, why not we relax listening music via new headphones? why not we give us a chance to store more by upgrading the HDD? So, here we are with all those economic needy stuffs for you.</p>
+    </div>
+
+    <div class="card-footer text-center">
+      <a href="#" class="btn btn-primary btn-lg active text-center" role="button" aria-pressed="true" style="font-family: 'Libre Baskerville', serif;">Buy Now</a>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+<!-- Team Container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Team Container -->
+
+
+<div class="container-fluid team" style="margin-top:  80px;">
+
+   <header class="bg-primary text-center py-5 mb-4">
+  <div class="container-fluid">
+    <h1 class="font-weight-bold text-white" style="font-family: 'Libre Baskerville', serif;">Meet the Team</h1>
+  </div>
+</header>
+
+</div>
+
+<!-- Page Content -->
+<div class="teamsec">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div id="testimonial-slider" class="owl-carousel">
+                    <div class="testimonial">
+                        <span class="icon12 fa fa-quote-left"></span>
+                        <p class="description">
+                            He is so good in learning from YouTube that he can even perform an open heart surgery if the video is provided to him. He's the one who is always ready for the challenges, the one having a learning attitude. He has the capability to take KXP to the next level. However, he is a perfect example of brain with no beauty. If we are the Pandavas, he'll surely be Yudhishthira, guiding us all in this journey.
+                        </p>
+                        <div class="testimonial-content">
+                            <div class="pic12"><img src="{% static 'home/anubhav1.jpg' %}" class=""alt=""></div>
+                            <h3 class="title12" style="font-family: 'Noto Serif', serif;">Anubhav Kulshrestha</h3>
+                            <span class="post" style="font-family: 'Noto Serif', serif;">Web Developer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <span class="icon12 fa fa-quote-left"></span>
+                        <p class="description">
+                           Our Team is full of all-rounders and he is one among them.He can design, He can write and even manages the team under him really well. He is one of the future tourch-bearers of Team KXP. He is a fitness Freak and a Gym boy as well. He deals every situation very calmly. He is the one who triggers the mindless things or SHIT talks. He is  the one who always utter one thing before the exam i.e. I would be fail, but in actual he tops the exam, and the most important best motivational speaker of our group.
+                        </p>
+                        <div class="testimonial-content">
+                            <div class="pic12"><img src="{% static 'home/harshu.jpg' %}" alt=""></div>
+                            <h3 class="title12" style="font-family: 'Noto Serif', serif;">Harsh Kumar Yadav</h3>
+                            <span class="post" style="font-family: 'Noto Serif', serif;">Web Developer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <span class="icon12 fa fa-quote-left"></span>
+                        <p class="description">
+                            He is the most Gentle guy in our team. He always reach his targets well on time. He is good in keeping his work minimal. He is very good with listening. So, if you are someone who loves to talk and don't want the other person to speak, you need to contact him. When he's done with his work you can always find him playing PUBG or watching live stream.
+                        </p>
+                        <div class="testimonial-content">
+                            <div class="pic12"><img src="{% static 'home/uttu1.jpg' %}" alt=""></div>
+                            <h3 class="title12" style="font-family: 'Noto Serif', serif;">Utkarsh Singh</h3>
+                            <span class="post" style="font-family: 'Noto Serif', serif;">Web Developer</span>
+                        </div>
+                    </div>
+
+                       <div class="testimonial">
+                        <span class="icon12 fa fa-quote-left"></span>
+                        <p class="description">
+                            He is the social media manager for our website. He is the one who is having a superpower of scoring without studying. A friendly guy, eveready to help others. His intelligence made him score 98 percentile in JEE but at the same time his ignorance made him land to a private institute. He has the capability of doing all those backbencher stuffs even from being seated on the very first one. In free time, you can find him in the library giving tuitions to his female friends.
+                        </p>
+                        <div class="testimonial-content">
+                            <div class="pic12"><img src="{% static 'home/anshu.jpg' %}" alt=""></div>
+                            <h3 class="title12" style="font-family: 'Noto Serif', serif;">Anshuman Shukla</h3>
+                            <span class="post" style="font-family: 'Noto Serif', serif;">Web Developer</span>
+                        </div>
+                    </div>
+                       <div class="testimonial">
+                        <span class="icon12 fa fa-quote-left"></span>
+                        <p class="description">
+                            His sleep cycle is not according to the general humans. He always works smart, working hard had never been an option for him. When team needs the solution to the most difficult task, he's the one having the easiest fix. If we consider ourselves as an Avengers, he'll definitely be an Antman.
+                        </p>
+                        <div class="testimonial-content">
+                            <div class="pic12"><img src="{% static 'home/akash.jpg' %}"alt=""></div>
+                            <h3 class="title12" style="font-family: 'Noto Serif', serif;">Akashdeep Gupta</h3>
+                            <span class="post" style="font-family: 'Noto Serif', serif;">Web Developer</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- customer Container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Container (Contact Section) -->
+  <section class="section-2 container-fluid p-0 ">
+      <div class="cover">
+        <div class="overlay1"></div>
+        <div class="content1 text-center">
+          <h1 class="my-2" style="font-family: 'Libre Baskerville', serif;">Contact Us</h1>
+          <p>
+            If You have any suggestion regarding any enhancement and update, feel free to share with us....
+          </p>
+        </div>
+      </div>
+     <div class=" text-center container-fluid" style="display: flex; justify-content: center;">
+        <div class="cntct3 ">
+
+<!--     		<form method="POST" action="/contact/">-->
+<!--               {% csrf_token %}-->
+
+
+<!--     		<div class=" col-lg-12 cntct2 numbers">-->
+<!--     			<div class="row"  style="margin-bottom: 20px;">-->
+<!--     				<div class="col-lg-12 send "><h1  style="font-family: 'Noto Serif', serif;  ">-->
+<!--     				Send Us a message</h1></div>-->
+<!--     			</div>-->
+<!--     			<div class="row">-->
+
+<!--     				<div class="col-lg-4 col-md-12">-->
+<!--     					<p style="font-family: 'Noto Serif', serif;  "><strong>Name</strong></p>-->
+<!--     				</div>-->
+<!--     				<div class="col-lg-8 col-md-12 form-group">-->
+<!--     					<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>-->
+<!--     				</div>-->
+<!--     			</div>-->
+<!--     			<div class="row">-->
+<!--     				<div class="col-lg-4 col-md-12">-->
+<!--     					<p style="font-family: 'Noto Serif', serif;  "><strong>Email</strong></p>-->
+<!--     				</div>-->
+<!--     				<div class="col-lg-8 col-md-12 form-group">-->
+<!--     					<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>-->
+<!--     				</div>-->
+<!--     			</div>-->
+<!--     			<div class="row">-->
+<!--     				<div class="col-lg-12 col-md-12">-->
+<!--     					<p style="font-family: 'Noto Serif', serif;  "><strong>Comment</strong></p>-->
+<!--     				</div>-->
+<!--     				<div class="col-lg-12 col-md-12 form-group">-->
+<!--     					<textarea class="form-control" id="message" name="message" placeholder="message"-->
+<!--     					rows="5"></textarea>-->
+<!--     				</div>-->
+<!--     				<br>-->
+
+<!--     				<div class="col-md-12 form-group " >-->
+<!--     				      <div class="g-recaptcha my-2" data-sitekey="6LdM9awZAAAAAOnGpxgvPCnCUULCgnDqtzba6Dxe"></div>-->
+
+<!--                       <button class="btn btn-dark btn-lg btn-block " type="submit" style="margin-bottom:10px; font-family: 'Libre Baskerville', serif;">Send</button>-->
+
+<!--                    </div>-->
+<!--     			</div>-->
+
+
+<!--     		</div>-->
+<!--     	</form>-->
+     	</div>
+      </div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small stylish-color-dark bg-dark pt-4">
+
+  <!-- Footer Links -->
+  <div class="container text-center bg-dark text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div id="about" class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"style="color: white;font-weight: bold;font-size: 25px; font-family: 'Libre Baskerville', serif;">About Us</h5>
+        <p style="color: white; font-family: 'Noto Serif', serif;">We are group of five highly enthusiastic students of KIET Group Of Institutions,Ghaziabad. Apart from different branches we come up together to form this platform for the college students,where anyone can sell their used items to the students who needs them at a reasonable price.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: white;font-size: 25px;  font-family: 'Libre Baskerville', serif;">Shop</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Books</a>
+          </li>
+          <li>
+            <a href="#" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Lab Accessories</a>
+          </li>
+          <li>
+            <a href="#" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Electrical Equipments</a>
+          </li>
+          <li>
+            <a href="#" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Others</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: white;font-size: 25px;  font-family: 'Libre Baskerville', serif;">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.kiet.edu/" target="_blank" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Kiet Official Website</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/channel/UC4rxBQyVV00oGX9-m2aqKYw" target="_blank" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">Kiet Youtube</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/groups/887103991313966/" target="_blank" style="text-decoration: none;color: white; font-family: 'Noto Serif', serif;">KIET Facebook</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold"style="color: white;font-weight: bold;margin-top: 15px;font-size: 25px; font-family: 'Libre Baskerville', serif;">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p style="color: white;  font-family: 'Noto Serif', serif;">
+          <i class="fas fa-home mr-3" style="color: white;"></i> KIET Group Of Institutions, Ghaziabad</p>
+        <p style="color: white;  font-family: 'Noto Serif', serif;">
+          <i class="fas fa-envelope mr-3" style="color: white;"></i> kxchangep@gmail.com</p>
+        <p style="color: white;  font-family: 'Noto Serif', serif;">
+          <i class="fas fa-phone mr-3" style="color: white;"></i> + 91 7534853018</p>
+        <p style="color: white;  font-family: 'Noto Serif', serif;">
+          <i class="fas fa-print mr-3" style="color: white;"></i> + 91 6392771770</p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <hr>
+
+
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center margin-10px">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1" target="_blank" href="https://www.instagram.com/kietxchange/">
+        <i class="fab fa-instagram" style="color:#d10081;font-size: 40px;"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1" target="_blank" href="https://twitter.com/KietPortal">
+        <i class="fab fa-twitter" style="color:#00acee;font-size: 40px;"> </i>
+      </a>
+    </li>
+   <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1" target="_blank" href="https://www.facebook.com/KIET-Xchange-Portal-100157411709501/">
+        <i class="fab fa-facebook" style="color: darkblue;font-size: 40px;"> </i>
+      </a>
+    </li>
+
+  </ul>
+  <!-- Social buttons -->
+<hr>
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 bg-dark"style="color: white;">© 2020 Copyright:
+    <a href="https://kxp.pythonanywhere.com/" style="font-family: 'Noto Serif', serif;"> kxp.pythonanywhere.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class='fas fa-angle-double-up'></i></button>
+<!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+<script >
+  //Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+<script>
+  function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+</script>
+<script>
+function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}</script>
+
+
+<!--Cart-->
+
+
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+updatePopover(cart);
+});
+
+
+function favourite() {
+    console.log('clicked dil');
+    Swal.fire({
+  icon: 'success',
+  title: 'Your item succesfully added in your whishlist',
+  showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+  }
+})
+}
+
+
+$('#popcart').popover();
+updatePopover(cart);
+function updatePopover(cart)
+{
+    console.log('We are inside updatePopover');
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart){
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 24) +  '<br>';
+        i = i+1;
+
+
+
+    }
+
+    if(i>=2)
+    {
+        popStr = popStr + "</div>  <button class='btn btn-primary btn-sm' onclick='clearCart()' id ='clearCart'>Clear Cart</button>  "
+
+    }
+
+
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('hide');
+}
+
+
+
+
+
+function clearCart() {
+   if('cart'!=null){
+        swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover your cart!",
+
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+
+    cart = JSON.parse(localStorage.getItem('cart'));
+    localStorage.clear();
+    cart = {};
+    updatePopover(cart);
+    updateCart(cart);
+    swal("Poof! Your cart has been cleared!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your favourite are safe!");
+  }
+});
+    }
+
+
+
+    }
+
+
+function updateCart(cart) {
+    var sum = null;
+    for (var item in cart) {
+        sum = sum + cart[item];
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = sum;
+    console.log(cart);
+    updatePopover(cart);
+}
+
+</script>
+
+
+
+
+<script >
+  var preloader = document.getElementById('loading');
+
+  function myfunction(){
+    preloader.style.display = 'none';
+  }
+  </script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"></script>
+
+  <script>$(document).ready(function () {
+
+  $('.first-button').click(function () {
+
+    $('.animated-icon1').toggleClass('open');
+  });});
+  </script>
+
+<script>
+var ScrollOut = (function () {
+  'use strict';
+
+  function clamp(v, min, max) {
+      return min > v ? min : max < v ? max : v;
+  }
+  function sign(x) {
+      return (+(x > 0) - +(x < 0));
+  }
+  function round(n) {
+      return Math.round(n * 10000) / 10000;
+  }
+
+  var cache = {};
+  function replacer(match) {
+      return '-' + match[0].toLowerCase();
+  }
+  function hyphenate(value) {
+      return cache[value] || (cache[value] = value.replace(/([A-Z])/g, replacer));
+  }
+
+  /** find elements */
+  function $(e, parent) {
+      return !e || e.length === 0
+          ? // null or empty string returns empty array
+              []
+          : e.nodeName
+              ? // a single element is wrapped in an array
+                  [e]
+              : // selector and NodeList are converted to Element[]
+                  [].slice.call(e[0].nodeName ? e : (parent || document.documentElement).querySelectorAll(e));
+  }
+  function setAttrs(el, attrs) {
+      // tslint:disable-next-line:forin
+      for (var key in attrs) {
+          if (key.indexOf('_')) {
+              el.setAttribute('data-' + hyphenate(key), attrs[key]);
+          }
+      }
+  }
+  function setProps(cssProps) {
+      return function (el, props) {
+          for (var key in props) {
+              if (key.indexOf('_') && (cssProps === true || cssProps[key])) {
+                  el.style.setProperty('--' + hyphenate(key), round(props[key]));
+              }
+          }
+      };
+  }
+
+  var clearTask;
+  var subscribers = [];
+  function loop() {
+      clearTask = 0;
+      subscribers.slice().forEach(function (s2) { return s2(); });
+      enqueue();
+  }
+  function enqueue() {
+      if (!clearTask && subscribers.length) {
+          clearTask = requestAnimationFrame(loop);
+      }
+  }
+  function subscribe(fn) {
+      subscribers.push(fn);
+      enqueue();
+      return function () {
+          subscribers = subscribers.filter(function (s) { return s !== fn; });
+          if (!subscribers.length && clearTask) {
+              cancelAnimationFrame(clearTask);
+              clearTask = 0;
+          }
+      };
+  }
+
+  function unwrap(value, el, ctx, doc) {
+      return typeof value === 'function' ? value(el, ctx, doc) : value;
+  }
+  function noop() { }
+
+  /**
+   * Creates a new instance of ScrollOut that marks elements in the viewport with
+   * an "in" class and marks elements outside of the viewport with an "out"
+   */
+  // tslint:disable-next-line:no-default-export
+  function main (opts) {
+      // Apply default options.
+      opts = opts || {};
+      // Debounce onChange/onHidden/onShown.
+      var onChange = opts.onChange || noop;
+      var onHidden = opts.onHidden || noop;
+      var onShown = opts.onShown || noop;
+      var onScroll = opts.onScroll || noop;
+      var props = opts.cssProps ? setProps(opts.cssProps) : noop;
+      var se = opts.scrollingElement;
+      var container = se ? $(se)[0] : window;
+      var doc = se ? $(se)[0] : document.documentElement;
+      var rootChanged = false;
+      var scrollingElementContext = {};
+      var elementContextList = [];
+      var clientOffsetX, clientOffsety;
+      var sub;
+      function index() {
+          elementContextList = $(opts.targets || '[data-scroll]', $(opts.scope || doc)[0]).map(function (el) { return ({ element: el }); });
+      }
+      function update() {
+          // Calculate position, direction and ratio.
+          var clientWidth = doc.clientWidth;
+          var clientHeight = doc.clientHeight;
+          var scrollDirX = sign(-clientOffsetX + (clientOffsetX = doc.scrollLeft || window.pageXOffset));
+          var scrollDirY = sign(-clientOffsety + (clientOffsety = doc.scrollTop || window.pageYOffset));
+          var scrollPercentX = doc.scrollLeft / (doc.scrollWidth - clientWidth || 1);
+          var scrollPercentY = doc.scrollTop / (doc.scrollHeight - clientHeight || 1);
+          // Detect if the root context has changed.
+          rootChanged =
+              rootChanged ||
+                  scrollingElementContext.scrollDirX !== scrollDirX ||
+                  scrollingElementContext.scrollDirY !== scrollDirY ||
+                  scrollingElementContext.scrollPercentX !== scrollPercentX ||
+                  scrollingElementContext.scrollPercentY !== scrollPercentY;
+          scrollingElementContext.scrollDirX = scrollDirX;
+          scrollingElementContext.scrollDirY = scrollDirY;
+          scrollingElementContext.scrollPercentX = scrollPercentX;
+          scrollingElementContext.scrollPercentY = scrollPercentY;
+          var childChanged = false;
+          for (var index_1 = 0; index_1 < elementContextList.length; index_1++) {
+              var ctx = elementContextList[index_1];
+              var element = ctx.element;
+              // find the distance from the element to the scrolling container
+              var target = element;
+              var offsetX = 0;
+              var offsetY = 0;
+              do {
+                  offsetX += target.offsetLeft;
+                  offsetY += target.offsetTop;
+                  target = target.offsetParent;
+              } while (target && target !== container);
+              // Get element dimensions.
+              var elementHeight = element.clientHeight || element.offsetHeight || 0;
+              var elementWidth = element.clientWidth || element.offsetWidth || 0;
+              // Find visible ratios for each element.
+              var visibleX = (clamp(offsetX + elementWidth, clientOffsetX, clientOffsetX + clientWidth) -
+                  clamp(offsetX, clientOffsetX, clientOffsetX + clientWidth)) /
+                  elementWidth;
+              var visibleY = (clamp(offsetY + elementHeight, clientOffsety, clientOffsety + clientHeight) -
+                  clamp(offsetY, clientOffsety, clientOffsety + clientHeight)) /
+                  elementHeight;
+              var intersectX = visibleX === 1 ? 0 : sign(offsetX - clientOffsetX);
+              var intersectY = visibleY === 1 ? 0 : sign(offsetY - clientOffsety);
+              var viewportX = clamp((clientOffsetX - (elementWidth / 2 + offsetX - clientWidth / 2)) / (clientWidth / 2), -1, 1);
+              var viewportY = clamp((clientOffsety - (elementHeight / 2 + offsetY - clientHeight / 2)) / (clientHeight / 2), -1, 1);
+              var visible = void 0;
+              if (opts.offset) {
+                  visible = unwrap(opts.offset, element, ctx, doc) <= clientOffsety ? 1 : 0;
+              }
+              else if ((unwrap(opts.threshold, element, ctx, doc) || 0) < visibleX * visibleY) {
+                  visible = 1;
+              }
+              else {
+                  visible = 0;
+              }
+              var changedVisible = ctx.visible !== visible;
+              var changed = ctx._changed ||
+                  changedVisible ||
+                  ctx.visibleX !== visibleX ||
+                  ctx.visibleY !== visibleY ||
+                  ctx.index !== index_1 ||
+                  ctx.elementHeight !== elementHeight ||
+                  ctx.elementWidth !== elementWidth ||
+                  ctx.offsetX !== offsetX ||
+                  ctx.offsetY !== offsetY ||
+                  ctx.intersectX !== ctx.intersectX ||
+                  ctx.intersectY !== ctx.intersectY ||
+                  ctx.viewportX !== viewportX ||
+                  ctx.viewportY !== viewportY;
+              if (changed) {
+                  childChanged = true;
+                  ctx._changed = true;
+                  ctx._visibleChanged = changedVisible;
+                  ctx.visible = visible;
+                  ctx.elementHeight = elementHeight;
+                  ctx.elementWidth = elementWidth;
+                  ctx.index = index_1;
+                  ctx.offsetX = offsetX;
+                  ctx.offsetY = offsetY;
+                  ctx.visibleX = visibleX;
+                  ctx.visibleY = visibleY;
+                  ctx.intersectX = intersectX;
+                  ctx.intersectY = intersectY;
+                  ctx.viewportX = viewportX;
+                  ctx.viewportY = viewportY;
+                  ctx.visible = visible;
+              }
+          }
+          if (!sub && (rootChanged || childChanged)) {
+              sub = subscribe(render);
+          }
+      }
+      function render() {
+          maybeUnsubscribe();
+          // Update root attributes if they have changed.
+          if (rootChanged) {
+              rootChanged = false;
+              setAttrs(doc, {
+                  scrollDirX: scrollingElementContext.scrollDirX,
+                  scrollDirY: scrollingElementContext.scrollDirY
+              });
+              props(doc, scrollingElementContext);
+              onScroll(doc, scrollingElementContext, elementContextList);
+          }
+          var len = elementContextList.length;
+          for (var x = len - 1; x > -1; x--) {
+              var ctx = elementContextList[x];
+              var el = ctx.element;
+              var visible = ctx.visible;
+              if (ctx._changed) {
+                  ctx._changed = false;
+                  props(el, ctx);
+              }
+              if (ctx._visibleChanged) {
+                  setAttrs(el, { scroll: visible ? 'in' : 'out' });
+                  onChange(el, ctx, doc);
+                  (visible ? onShown : onHidden)(el, ctx, doc);
+              }
+              // if this is shown multiple times, keep it in the list
+              if (visible && opts.once) {
+                  elementContextList.splice(x, 1);
+              }
+          }
+      }
+      function maybeUnsubscribe() {
+          if (sub) {
+              sub();
+              sub = undefined;
+          }
+      }
+      // Run initialize index.
+      index();
+      update();
+      render();
+      // Collapses sequential updates into a single update.
+      var updateTaskId = 0;
+      var onUpdate = function () {
+          updateTaskId = updateTaskId || setTimeout(function () {
+              updateTaskId = 0;
+              update();
+          }, 0);
+      };
+      // Hook up document listeners to automatically detect changes.
+      window.addEventListener('resize', onUpdate);
+      container.addEventListener('scroll', onUpdate);
+      return {
+          index: index,
+          update: update,
+          teardown: function () {
+              maybeUnsubscribe();
+              window.removeEventListener('resize', onUpdate);
+              container.removeEventListener('scroll', onUpdate);
+          }
+      };
+  }
+
+  return main;
+
+}());
+
+</script>
+<script type="text/javascript">
+ ScrollOut({
+     targets: 'h5,p,a'
+ })
+ </script>
+
+
+
+
+<!--fade-in-->
+<script>
+const faders = document.querySelectorAll(".fade-in");
+const sliders = document.querySelectorAll(".slide-in");
+
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -280px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(
+  entries,
+  appearOnScroll
+) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add("appear");
+      appearOnScroll.unobserve(entry.target);
+    }
+  });
+},
+appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+
+
+sliders.forEach(slider => {
+  appearOnScroll.observe(slider);
+});
+
+
+$(function() {
+
+                var documentEl = $(document),
+                    fadeElem = $('.fade-scroll');
+
+
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();
+
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    });
+                });
+
+            });
+
+</script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+ <script>
+$(document).ready(function(){
+    $("#testimonial-slider").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,3],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[768,2],
+        itemsMobile:[650,1],
+        pagination:true,
+        autoPlay:true
+    });
+});
+     </script>
+
+
+
+
+</body>
+</html>
+
